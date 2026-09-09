@@ -22,7 +22,7 @@ export default function ContactContent({ section, reducedMotion }) {
       initial="hidden"
       animate="show"
       exit="exit"
-      className="absolute inset-0 overflow-y-auto scene-scroll flex flex-col gap-6 pt-20 pb-40 px-5 sm:px-8 md:px-14 lg:px-20 md:pb-16"
+      className="absolute inset-0 overflow-y-auto scene-scroll pointer-events-auto flex flex-col gap-6 pt-20 pb-40 px-5 sm:px-8 md:px-14 lg:px-20 md:pb-16"
       style={{ color: fg }}
     >
       {/* Header block: label + headline */}

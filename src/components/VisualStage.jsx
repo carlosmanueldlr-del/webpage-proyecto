@@ -16,7 +16,7 @@ export default function VisualStage({
   disabled,
 }) {
   return (
-    <div className="absolute inset-0 pointer-events-none z-10">
+    <div className="absolute inset-0 pointer-events-none z-[25]">
       <AnimatePresence initial={false}>
         <NextSectionPreview
           key={`preview-${nextSection.id}`}
