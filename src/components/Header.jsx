@@ -20,7 +20,7 @@ export default function Header({ currentId, onNavigate, fg }) {
         <img
           src="/images/charly-lab-logo.png"
           alt="Charly Lab"
-          className="h-7 sm:h-8 md:h-9 w-auto select-none"
+          className="h-10 sm:h-9 md:h-9 w-auto select-none"
           draggable={false}
         />
       </a>
