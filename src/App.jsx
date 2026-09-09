@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import { sections, getSectionIndex, getNextSection, getPrevSection } from "./data/sections";
 import { projects } from "./data/projects";
 import { useSectionNavigation, usePrefersReducedMotion } from "./hooks/useSectionNavigation";
@@ -8,11 +9,13 @@ import SectionScene from "./components/SectionScene";
 import Header from "./components/Header";
 import NavigationControls from "./components/NavigationControls";
 import Particles from "./components/Particles";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function App() {
   const [currentId, setCurrentId] = useState("about");
   const [projectIndex, setProjectIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
+  const [introDone, setIntroDone] = useState(false);
   const transitionTimeout = useRef(null);
   const reducedMotion = usePrefersReducedMotion();
 
@@ -35,7 +38,7 @@ export default function App() {
   const goNext = useCallback(() => goTo(getNextSection(currentId).id), [currentId, goTo]);
   const goPrev = useCallback(() => goTo(getPrevSection(currentId).id), [currentId, goTo]);
 
-  useSectionNavigation({ onNext: goNext, onPrev: goPrev, disabled: transitioning });
+  useSectionNavigation({ onNext: goNext, onPrev: goPrev, disabled: transitioning || !introDone });
 
   const activeProject = projects[projectIndex];
 
@@ -75,6 +78,12 @@ export default function App() {
         fg={currentSection.theme.fg}
         disabled={transitioning}
       />
+
+      <AnimatePresence>
+        {!introDone && (
+          <LoadingScreen key="intro" onComplete={() => setIntroDone(true)} reducedMotion={reducedMotion} />
+        )}
+      </AnimatePresence>
     </main>
   );
 }
