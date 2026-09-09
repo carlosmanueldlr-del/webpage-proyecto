@@ -4,37 +4,27 @@ export default function ContactVisual({ role, reducedMotion }) {
   const isMain = role === "main";
   return (
     <div className="relative w-full h-full flex items-center justify-center">
-      <motion.div
-        className="relative rounded-full flex items-center justify-center"
-        style={{
-          width: "100%",
-          height: "100%",
-          border: "1.5px solid rgba(255,246,238,0.28)",
-          background:
-            "radial-gradient(circle at 32% 28%, rgba(255,217,160,0.16), transparent 60%)",
-        }}
+      <div
+        className="absolute inset-[6%] rounded-full blur-2xl"
+        style={{ background: "radial-gradient(circle, rgba(255,217,160,0.22), transparent 70%)" }}
+        aria-hidden="true"
+      />
+      <motion.img
+        src="/images/contact-envelope.png"
+        alt="Floating envelope, get in touch"
+        className="relative w-[82%] h-[82%] object-contain select-none"
+        draggable={false}
         animate={
           isMain && !reducedMotion
-            ? { rotate: [0, 4, 0, -4, 0] }
-            : { rotate: 0 }
+            ? { rotate: [-3, 3, -3], y: [0, -10, 0] }
+            : { rotate: 0, y: 0 }
         }
         transition={
           isMain && !reducedMotion
-            ? { duration: 10, repeat: Infinity, ease: "easeInOut" }
+            ? { duration: 8, repeat: Infinity, ease: "easeInOut" }
             : { duration: 0 }
         }
-      >
-        <span
-          className="font-semibold select-none"
-          style={{
-            color: "#FFD9A0",
-            fontSize: "clamp(2rem, 12vw, 7rem)",
-            lineHeight: 1,
-          }}
-        >
-          @
-        </span>
-      </motion.div>
+      />
     </div>
   );
 }
