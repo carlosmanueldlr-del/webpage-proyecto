@@ -29,14 +29,14 @@ export default function AboutContent({ section, reducedMotion }) {
         </motion.p>
         <motion.h1
           variants={itemVariants}
-          className="font-extrabold leading-[0.98]"
+          className="font-display font-bold leading-[0.98]"
           style={{ fontSize: "clamp(2.4rem, 6.2vw, 4.6rem)" }}
         >
           {section.kicker}
         </motion.h1>
         <motion.h2
           variants={itemVariants}
-          className="font-semibold leading-[1.05] opacity-90"
+          className="font-display font-semibold leading-[1.05] opacity-90"
           style={{ fontSize: "clamp(1.4rem, 3vw, 2.1rem)" }}
         >
           {section.headline[0]}

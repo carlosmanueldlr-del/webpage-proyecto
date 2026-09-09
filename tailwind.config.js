@@ -5,13 +5,14 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Manrope", "Inter", "system-ui", "sans-serif"],
+        display: ["Space Grotesk", "Manrope", "system-ui", "sans-serif"],
       },
       colors: {
         about: {
-          bg: "#F1E7D6",
-          bg2: "#EADDC6",
-          fg: "#1C1815",
-          accent: "#C96A3F",
+          bg: "#F7E5EE",
+          bg2: "#EFD3E1",
+          fg: "#231521",
+          accent: "#C9417F",
         },
         portfolio: {
           bg: "#121216",

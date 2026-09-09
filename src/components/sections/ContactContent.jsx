@@ -32,7 +32,7 @@ export default function ContactContent({ section, reducedMotion }) {
         </motion.p>
         <motion.h1
           variants={itemVariants}
-          className="font-extrabold leading-[0.95]"
+          className="font-display font-bold leading-[0.95]"
           style={{ fontSize: "clamp(2.6rem, 6.6vw, 5rem)" }}
         >
           {section.headline[0]}
