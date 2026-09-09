@@ -13,7 +13,7 @@ export const sections = [
       accent: "#C96A3F",
     },
     label: "01 / About Me",
-    kicker: "Hi, I'm Carlos.",
+    kicker: "Hi, I'm Charly.",
     headline: ["I turn ideas into", "digital experiences."],
     paragraph:
       "I combine strategy, creativity, technology and web development to design and build useful, elegant digital experiences — from first sketch to shipped product.",

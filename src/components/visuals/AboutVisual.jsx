@@ -11,7 +11,7 @@ export default function AboutVisual({ section, role, reducedMotion }) {
       />
       <motion.img
         src={section.image}
-        alt="Portrait of Carlos, creative developer"
+        alt="Portrait of Charly, creative developer"
         className="relative w-full h-full object-contain select-none"
         style={{ mixBlendMode: "multiply" }}
         draggable={false}
