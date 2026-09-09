@@ -76,6 +76,7 @@ export default function App() {
         onPrev={goPrev}
         onNext={goNext}
         fg={currentSection.theme.fg}
+        bg={currentSection.theme.bg}
         disabled={transitioning}
       />
 
