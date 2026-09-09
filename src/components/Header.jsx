@@ -15,9 +15,14 @@ export default function Header({ currentId, onNavigate, fg }) {
           e.preventDefault();
           onNavigate("about");
         }}
-        className="text-xs sm:text-sm font-bold tracking-[0.18em] whitespace-nowrap"
+        className="shrink-0"
       >
-        CARLOS LEÓN
+        <img
+          src="/images/charly-lab-logo.png"
+          alt="Charly Lab"
+          className="h-7 sm:h-8 md:h-9 w-auto select-none"
+          draggable={false}
+        />
       </a>
 
       <nav
