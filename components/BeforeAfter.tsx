@@ -29,24 +29,28 @@ export default function BeforeAfter({ before, after, caption }: BeforeAfterPair)
           }}
         />
 
+        {/* Fixed white-on-dark-scrim, independent of the paper/ink theme
+            tokens: these controls sit on top of an arbitrary photograph,
+            not the site's own background, so they must stay legible
+            regardless of which theme variant is active. */}
         <div className="absolute bottom-4 left-4 flex items-center gap-3 sm:bottom-6 sm:left-6">
           <button
             type="button"
             data-cursor="link"
             onClick={() => setState("before")}
             className={`text-micro uppercase tracking-label transition-colors ${
-              state === "before" ? "text-paper" : "text-paper/50 hover:text-paper/80"
+              state === "before" ? "text-white" : "text-white/50 hover:text-white/80"
             }`}
           >
             Before
           </button>
-          <span className="text-paper/30">/</span>
+          <span className="text-white/30">/</span>
           <button
             type="button"
             data-cursor="link"
             onClick={() => setState("after")}
             className={`text-micro uppercase tracking-label transition-colors ${
-              state === "after" ? "text-paper" : "text-paper/50 hover:text-paper/80"
+              state === "after" ? "text-white" : "text-white/50 hover:text-white/80"
             }`}
           >
             After
