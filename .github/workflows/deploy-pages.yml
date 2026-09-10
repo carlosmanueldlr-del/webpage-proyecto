@@ -1,16 +1,16 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (Sidebar nav preview)
 
 on:
   push:
     branches:
-      - claude/joana-architecture-website-q1pby1
+      - claude/joana-sidebar-nav
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: pages
+  group: pages-sidebar-nav
   cancel-in-progress: true
 
 jobs:
@@ -26,10 +26,10 @@ jobs:
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
-      - name: Add .nojekyll
-        run: touch ./out/.nojekyll
-      - name: Deploy to gh-pages branch
+      - name: Deploy to gh-pages branch (sidebar-nav/ subfolder)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
+          destination_dir: sidebar-nav
+          keep_files: true

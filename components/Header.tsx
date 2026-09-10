@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[75] flex h-[var(--header-h)] items-center justify-between transition-colors duration-500 ease-soft editorial-container ${
+      className={`fixed inset-x-0 top-0 z-[75] flex h-[var(--header-h)] items-center justify-between transition-colors duration-500 ease-soft editorial-container lg:hidden ${
         isOpen
           ? "text-paper"
           : scrolled

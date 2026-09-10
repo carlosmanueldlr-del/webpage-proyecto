@@ -7,6 +7,15 @@
   color-scheme: light;
 }
 
+/* Sidebar-nav variant: the persistent sidebar replaces the top header on
+   desktop, so the top offset every page reserves via --header-h collapses
+   to 0 there instead of leaving a redundant gap. */
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 0px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
