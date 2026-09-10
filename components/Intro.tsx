@@ -58,11 +58,7 @@ export default function Intro({ onComplete }: { onComplete: () => void }) {
         {panels.map((i) => (
           <motion.div
             key={i}
-            className="h-full flex-1"
-            style={{
-              background: i % 2 === 0 ? "#f4f2ee" : "#eeece6",
-              borderLeft: i === 0 ? "none" : "1px solid #e2ded2",
-            }}
+            className="h-full flex-1 bg-paper"
             initial={{ y: 0 }}
             animate={phase === "exit" ? { y: "-100%" } : { y: 0 }}
             transition={{
