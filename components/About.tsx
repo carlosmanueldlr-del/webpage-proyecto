@@ -7,7 +7,13 @@ export default function About() {
       <section className="pt-[var(--header-h)]">
         <RevealImage className="h-[70vh] min-h-[380px] w-full">
           <ParallaxLayer strength={26} className="h-full w-full">
-            <Photo seed="about-studio" alt="JOANA studio" className="h-full w-full" priority />
+            <Photo
+              seed="about-studio"
+              src="/images/about-studio.jpg"
+              alt="JOANA studio"
+              className="h-full w-full"
+              priority
+            />
           </ParallaxLayer>
         </RevealImage>
       </section>

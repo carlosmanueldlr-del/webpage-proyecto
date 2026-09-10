@@ -79,7 +79,7 @@ export const projects: Project[] = [
     location: "TLAQUEPAQUE, MX",
     description:
       "A HOUSE BUILT AROUND AN INTERIOR COURTYARD, CASA PATIO REINTERPRETS THE TRADITIONAL MEXICAN PATIO AS A DEVICE FOR VENTILATION, PRIVACY AND SLOW, DAILY RITUAL.",
-    cover: { seed: "patio-cover", ratio: "portrait" },
+    cover: { seed: "patio-cover", ratio: "portrait", src: "/images/projects/casa-patio/cover.jpg" },
     gallery: [
       { seed: "patio-01", ratio: "square", caption: "CENTRAL COURTYARD" },
       { seed: "patio-02", ratio: "landscape" },
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     location: "CIUDAD DE MÉXICO, MX",
     description:
       "AN INTERIOR RENOVATION FOR A 1940S APARTMENT IN ROMA NORTE. ORIGINAL PARQUET AND MOULDINGS WERE PRESERVED AND SET AGAINST A NEW, QUIETER LAYER OF PLASTER AND STEEL.",
-    cover: { seed: "roma-cover", ratio: "portrait" },
+    cover: { seed: "roma-cover", ratio: "portrait", src: "/images/projects/apartamento-roma/cover.jpg" },
     gallery: [
       { seed: "roma-01", ratio: "landscape", caption: "LIVING ROOM, ORIGINAL PARQUET" },
       { seed: "roma-02", ratio: "portrait", caption: "STEEL-FRAMED PASSAGE" },

@@ -15,6 +15,7 @@ export default function HomePage() {
           <ParallaxLayer strength={30} className="h-full w-full">
             <Photo
               seed="home-hero"
+              src="/images/home-hero.jpg"
               alt="Featured architectural project by JOANA"
               className="h-full w-full"
               priority
@@ -50,7 +51,12 @@ export default function HomePage() {
       {/* Secondary full-bleed image */}
       <section>
         <RevealImage className="h-[60vh] min-h-[320px] w-full">
-          <Photo seed="home-secondary" alt="Interior detail" className="h-full w-full" />
+          <Photo
+            seed="home-secondary"
+            src="/images/home-secondary.jpg"
+            alt="Interior detail"
+            className="h-full w-full"
+          />
         </RevealImage>
       </section>
 
