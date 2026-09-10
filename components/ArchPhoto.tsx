@@ -14,15 +14,16 @@ import type { ImageRatio } from "@/lib/projects";
  * required.
  */
 
+// "Bold Editorial" variant — charcoal-to-black gradient instead of light sand
 const TONES = [
-  "#e7e3d8",
-  "#ddd7c8",
-  "#cdc5b1",
-  "#b3aa94",
-  "#948a76",
-  "#655d4e",
-  "#3a352c",
-  "#211e19",
+  "#5a5348",
+  "#4a453c",
+  "#3d3831",
+  "#302c26",
+  "#26221d",
+  "#1d1a16",
+  "#151210",
+  "#0d0b09",
 ];
 
 function hashSeed(seed: string): number {

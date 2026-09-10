@@ -9,12 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#f4f2ee", // off-white
-        canvas: "#eeece6",
-        ink: "#151412", // near-black
-        stone: "#8a8478", // warm gray
-        stoneLight: "#c9c4b8",
-        line: "#d9d5c9",
+        // "Bold Editorial" variant — inverted: near-black dominant, cream
+        // text. paper/ink swap ROLES (paper = main bg, ink = main text) so
+        // every component that already uses those tokens just works.
+        paper: "#17120f", // near-black, warm undertone
+        canvas: "#1d1712",
+        ink: "#f3ebe0", // warm cream
+        stone: "#b3a692", // warm taupe-gray (secondary text)
+        stoneLight: "#6b6152", // dim warm gray (tertiary/faint text)
+        line: "#3a332a",
       },
       fontFamily: {
         sans: [
