@@ -3,14 +3,22 @@
 // / npm run build) is unaffected.
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 
+const basePath = isGithubPages ? "/webpage-proyecto" : "";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Exposed to client code so hand-written asset paths (plain <img src="/images/...">,
+  // which Next does NOT rewrite the way it rewrites next/link or next/image) can be
+  // prefixed correctly when the site is served from a GitHub Pages subpath.
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   ...(isGithubPages
     ? {
         output: "export",
-        basePath: "/webpage-proyecto",
-        assetPrefix: "/webpage-proyecto/",
+        basePath,
+        assetPrefix: `${basePath}/`,
         trailingSlash: true,
       }
     : {}),

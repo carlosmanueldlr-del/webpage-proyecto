@@ -201,6 +201,12 @@ export function Photo({
   // that file turns out to be missing.
   const [failed, setFailed] = useState(false);
   const showImage = Boolean(src) && !failed;
+  // Plain <img src="/images/..."> paths are absolute and Next.js only
+  // rewrites its own managed assets (next/link, next/image, /_next/*) for a
+  // configured basePath — not hand-written strings like this one. Prefix
+  // manually so images still resolve when the site is served from a
+  // subpath (e.g. the GitHub Pages deploy at /webpage-proyecto).
+  const resolvedSrc = src ? `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${src}` : undefined;
 
   const ratioClass =
     ratio === "portrait"
@@ -216,7 +222,7 @@ export function Photo({
       {showImage && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={src}
+          src={resolvedSrc}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
