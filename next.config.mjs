@@ -3,9 +3,7 @@
 // / npm run build) is unaffected.
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 
-// This branch is a design-variant preview, deployed under a subpath of the
-// main site instead of the root (see .github/workflows/deploy-pages.yml).
-const basePath = isGithubPages ? "/webpage-proyecto/sidebar-nav" : "";
+const basePath = isGithubPages ? "/webpage-proyecto" : "";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
