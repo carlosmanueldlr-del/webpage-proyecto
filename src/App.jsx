@@ -45,7 +45,7 @@ export default function App() {
   return (
     <main
       id="top"
-      className="fixed inset-0 w-full h-full overflow-hidden select-none"
+      className="app-shell fixed inset-x-0 top-0 w-full overflow-hidden select-none"
       style={{ fontFamily: "Manrope, Inter, system-ui, sans-serif" }}
     >
       <BackgroundLayer section={currentSection} />

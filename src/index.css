@@ -24,6 +24,17 @@ body {
   background: rgba(0, 0, 0, 0.2);
 }
 
+/* iOS Safari sizes `position: fixed; inset: 0` against the "large" viewport
+   (as if the toolbar were hidden), and since this app never scrolls the real
+   page, Safari's toolbar never auto-collapses to reveal that extra space —
+   so a plain 100vh box can end up taller than what's actually visible,
+   hiding content behind the toolbar with no way to reach it. `100dvh` tracks
+   the real visible viewport instead. */
+.app-shell {
+  height: 100vh;
+  height: 100dvh;
+}
+
 .scene-scroll {
   overflow-y: auto;
   overflow-x: hidden;
