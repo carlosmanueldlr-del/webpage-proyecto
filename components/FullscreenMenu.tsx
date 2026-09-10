@@ -10,10 +10,10 @@ import { Photo } from "./ArchPhoto";
 const EASE = [0.65, 0, 0.35, 1] as const;
 
 const PRIMARY_LINKS = [
-  { label: "Projects", href: "/#projects" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Contact", href: "/contact" },
+  { label: "Proyectos", href: "/#projects" },
+  { label: "Nosotros", href: "/about" },
+  { label: "Servicios", href: "/services" },
+  { label: "Contacto", href: "/contact" },
   { label: "Instagram", href: "https://instagram.com", external: true },
 ];
 
@@ -146,11 +146,11 @@ export default function FullscreenMenu() {
                 <p className="text-paper/85">{studio.instagram}</p>
               </div>
               <div>
-                <p className="mb-1 text-paper/40">Email</p>
+                <p className="mb-1 text-paper/40">Correo</p>
                 <p className="text-paper/85">{studio.email}</p>
               </div>
               <div>
-                <p className="mb-1 text-paper/40">Location</p>
+                <p className="mb-1 text-paper/40">Ubicación</p>
                 <p className="text-paper/85">{studio.location}</p>
               </div>
             </div>

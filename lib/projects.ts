@@ -1,4 +1,4 @@
-export type ProjectCategory = "RESIDENTIAL" | "INTERIOR";
+export type ProjectCategory = "RESIDENCIAL" | "INTERIOR";
 
 export type ImageRatio = "landscape" | "portrait" | "square";
 
@@ -37,77 +37,77 @@ export const projects: Project[] = [
     slug: "casa-olivo",
     index: "001",
     name: "CASA OLIVO",
-    category: "RESIDENTIAL",
+    category: "RESIDENCIAL",
     year: "2026",
     location: "GUADALAJARA, MX",
     description:
-      "CASA OLIVO EXPLORES THE RELATIONSHIP BETWEEN NATURAL LIGHT, TEXTURE AND DOMESTIC LIFE. THE PROJECT USES A LIMITED MATERIAL PALETTE TO CREATE WARM, QUIET AND TIMELESS SPACES.",
+      "CASA OLIVO EXPLORA LA RELACIÓN ENTRE LA LUZ NATURAL, LA TEXTURA Y LA VIDA DOMÉSTICA. EL PROYECTO UTILIZA UNA PALETA DE MATERIALES LIMITADA PARA CREAR ESPACIOS CÁLIDOS, SERENOS Y ATEMPORALES.",
     cover: { seed: "olivo-cover", ratio: "landscape" },
     gallery: [
-      { seed: "olivo-01", ratio: "landscape", caption: "SOUTH FAÇADE, EXPOSED CONCRETE AND OAK" },
-      { seed: "olivo-02", ratio: "portrait", caption: "STAIR DETAIL" },
-      { seed: "olivo-03", ratio: "portrait", caption: "LIVING ROOM, NORTH LIGHT" },
+      { seed: "olivo-01", ratio: "landscape", caption: "FACHADA SUR, CONCRETO EXPUESTO Y ROBLE" },
+      { seed: "olivo-02", ratio: "portrait", caption: "DETALLE DE ESCALERA" },
+      { seed: "olivo-03", ratio: "portrait", caption: "SALA, LUZ NORTE" },
       { seed: "olivo-04", ratio: "landscape" },
-      { seed: "olivo-05", ratio: "square", caption: "TRAVERTINE THRESHOLD" },
-      { seed: "olivo-06", ratio: "landscape", caption: "COURTYARD AT DUSK" },
+      { seed: "olivo-05", ratio: "square", caption: "UMBRAL DE TRAVERTINO" },
+      { seed: "olivo-06", ratio: "landscape", caption: "PATIO AL ATARDECER" },
     ],
   },
   {
     slug: "casa-luz",
     index: "002",
     name: "CASA LUZ",
-    category: "RESIDENTIAL",
+    category: "RESIDENCIAL",
     year: "2026",
     location: "ZAPOPAN, MX",
     description:
-      "CASA LUZ IS ORGANISED AROUND A SINGLE SHAFT OF LIGHT THAT MOVES THROUGH THE HOUSE ACROSS THE DAY. ROOMS ARE ARRANGED TO FOLLOW ITS PATH, TURNING LIGHT ITSELF INTO A MATERIAL.",
+      "CASA LUZ SE ORGANIZA ALREDEDOR DE UN ÚNICO HAZ DE LUZ QUE RECORRE LA CASA A LO LARGO DEL DÍA. LOS ESPACIOS SE DISPONEN SIGUIENDO SU TRAYECTORIA, CONVIRTIENDO LA LUZ MISMA EN UN MATERIAL.",
     cover: { seed: "luz-cover", ratio: "landscape" },
     gallery: [
-      { seed: "luz-01", ratio: "landscape", caption: "LIGHT SHAFT, DOUBLE HEIGHT VOID" },
+      { seed: "luz-01", ratio: "landscape", caption: "HAZ DE LUZ, VACÍO DE DOBLE ALTURA" },
       { seed: "luz-02", ratio: "landscape" },
-      { seed: "luz-03", ratio: "portrait", caption: "KITCHEN, HONED LIMESTONE" },
+      { seed: "luz-03", ratio: "portrait", caption: "COCINA, PIEDRA CALIZA PULIDA" },
       { seed: "luz-04", ratio: "portrait" },
-      { seed: "luz-05", ratio: "landscape", caption: "MASTER BEDROOM, WEST WALL" },
+      { seed: "luz-05", ratio: "landscape", caption: "RECÁMARA PRINCIPAL, MURO PONIENTE" },
     ],
   },
   {
     slug: "casa-patio",
     index: "003",
     name: "CASA PATIO",
-    category: "RESIDENTIAL",
+    category: "RESIDENCIAL",
     year: "2025",
     location: "TLAQUEPAQUE, MX",
     description:
-      "A HOUSE BUILT AROUND AN INTERIOR COURTYARD, CASA PATIO REINTERPRETS THE TRADITIONAL MEXICAN PATIO AS A DEVICE FOR VENTILATION, PRIVACY AND SLOW, DAILY RITUAL.",
+      "UNA CASA CONSTRUIDA ALREDEDOR DE UN PATIO INTERIOR, CASA PATIO REINTERPRETA EL PATIO TRADICIONAL MEXICANO COMO UN DISPOSITIVO DE VENTILACIÓN, PRIVACIDAD Y RITUAL COTIDIANO PAUSADO.",
     cover: { seed: "patio-cover", ratio: "portrait", src: "/images/projects/casa-patio/cover.jpg" },
     gallery: [
-      { seed: "patio-01", ratio: "square", caption: "CENTRAL COURTYARD" },
+      { seed: "patio-01", ratio: "square", caption: "PATIO CENTRAL" },
       { seed: "patio-02", ratio: "landscape" },
-      { seed: "patio-03", ratio: "portrait", caption: "CORRIDOR, RAMMED EARTH WALL" },
-      { seed: "patio-04", ratio: "landscape", caption: "DINING AREA OVERLOOKING PATIO" },
+      { seed: "patio-03", ratio: "portrait", caption: "PASILLO, MURO DE TIERRA APISONADA" },
+      { seed: "patio-04", ratio: "landscape", caption: "COMEDOR CON VISTA AL PATIO" },
       { seed: "patio-05", ratio: "portrait" },
     ],
     beforeAfter: {
       before: { seed: "patio-before", ratio: "landscape" },
       after: { seed: "patio-after", ratio: "landscape" },
-      caption: "MAIN COURTYARD, PRIOR STRUCTURE VS. CURRENT STATE",
+      caption: "PATIO PRINCIPAL, ESTRUCTURA ANTERIOR VS. ESTADO ACTUAL",
     },
   },
   {
     slug: "casa-sierra",
     index: "004",
     name: "CASA SIERRA",
-    category: "RESIDENTIAL",
+    category: "RESIDENCIAL",
     year: "2025",
     location: "VALLE DE BRAVO, MX",
     description:
-      "SET AGAINST A FOREST SLOPE, CASA SIERRA USES A RESTRAINED STRUCTURE OF TIMBER AND STONE TO DISSOLVE THE BOUNDARY BETWEEN INTERIOR AND LANDSCAPE.",
+      "ASENTADA SOBRE UNA LADERA BOSCOSA, CASA SIERRA UTILIZA UNA ESTRUCTURA CONTENIDA DE MADERA Y PIEDRA PARA DISOLVER EL LÍMITE ENTRE EL INTERIOR Y EL PAISAJE.",
     cover: { seed: "sierra-cover", ratio: "landscape" },
     gallery: [
-      { seed: "sierra-01", ratio: "landscape", caption: "NORTH ELEVATION AMONG PINES" },
+      { seed: "sierra-01", ratio: "landscape", caption: "FACHADA NORTE ENTRE PINOS" },
       { seed: "sierra-02", ratio: "portrait" },
-      { seed: "sierra-03", ratio: "landscape", caption: "LIVING AREA, FULL-HEIGHT GLAZING" },
-      { seed: "sierra-04", ratio: "square", caption: "STONE HEARTH DETAIL" },
+      { seed: "sierra-03", ratio: "landscape", caption: "SALA, VENTANALES DE ALTURA COMPLETA" },
+      { seed: "sierra-04", ratio: "square", caption: "DETALLE DE CHIMENEA DE PIEDRA" },
       { seed: "sierra-05", ratio: "portrait" },
       { seed: "sierra-06", ratio: "landscape" },
     ],
@@ -120,41 +120,41 @@ export const projects: Project[] = [
     year: "2025",
     location: "CIUDAD DE MÉXICO, MX",
     description:
-      "AN INTERIOR RENOVATION FOR A 1940S APARTMENT IN ROMA NORTE. ORIGINAL PARQUET AND MOULDINGS WERE PRESERVED AND SET AGAINST A NEW, QUIETER LAYER OF PLASTER AND STEEL.",
+      "UNA RENOVACIÓN INTERIOR PARA UN DEPARTAMENTO DE LOS AÑOS 40 EN ROMA NORTE. EL PARQUET Y LAS MOLDURAS ORIGINALES SE CONSERVARON Y SE CONTRASTARON CON UNA NUEVA CAPA, MÁS SERENA, DE YESO Y ACERO.",
     cover: { seed: "roma-cover", ratio: "portrait", src: "/images/projects/apartamento-roma/cover.jpg" },
     gallery: [
-      { seed: "roma-01", ratio: "landscape", caption: "LIVING ROOM, ORIGINAL PARQUET" },
-      { seed: "roma-02", ratio: "portrait", caption: "STEEL-FRAMED PASSAGE" },
+      { seed: "roma-01", ratio: "landscape", caption: "SALA, PARQUET ORIGINAL" },
+      { seed: "roma-02", ratio: "portrait", caption: "PASILLO CON MARCO DE ACERO" },
       { seed: "roma-03", ratio: "square" },
-      { seed: "roma-04", ratio: "landscape", caption: "STUDY, RESTORED MOULDING" },
+      { seed: "roma-04", ratio: "landscape", caption: "ESTUDIO, MOLDURA RESTAURADA" },
     ],
     beforeAfter: {
       before: { seed: "roma-before", ratio: "portrait" },
       after: { seed: "roma-after", ratio: "portrait" },
-      caption: "LIVING ROOM, ORIGINAL CONDITION VS. RENOVATION",
+      caption: "SALA, ESTADO ORIGINAL VS. RENOVACIÓN",
     },
   },
   {
     slug: "casa-jardin",
     index: "006",
     name: "CASA JARDÍN",
-    category: "RESIDENTIAL",
+    category: "RESIDENCIAL",
     year: "2024",
     location: "GUADALAJARA, MX",
     description:
-      "A 1970S FAMILY HOME RECONFIGURED AROUND ITS OVERGROWN GARDEN. THE RENOVATION REMOVES INTERIOR PARTITIONS TO LET PLANTED COURTYARDS REACH DEEPER INTO THE HOUSE.",
+      "UNA CASA FAMILIAR DE LOS AÑOS 70 RECONFIGURADA ALREDEDOR DE SU JARDÍN CRECIDO. LA RENOVACIÓN ELIMINA DIVISIONES INTERIORES PARA QUE LOS PATIOS AJARDINADOS PENETREN MÁS PROFUNDO EN LA CASA.",
     cover: { seed: "jardin-cover", ratio: "landscape" },
     gallery: [
-      { seed: "jardin-01", ratio: "landscape", caption: "GARDEN FAÇADE AFTER RENOVATION" },
+      { seed: "jardin-01", ratio: "landscape", caption: "FACHADA AL JARDÍN DESPUÉS DE LA RENOVACIÓN" },
       { seed: "jardin-02", ratio: "portrait" },
-      { seed: "jardin-03", ratio: "landscape", caption: "OPEN PLAN LIVING/DINING" },
-      { seed: "jardin-04", ratio: "square", caption: "RECLAIMED BRICK DETAIL" },
+      { seed: "jardin-03", ratio: "landscape", caption: "SALA-COMEDOR DE PLANTA ABIERTA" },
+      { seed: "jardin-04", ratio: "square", caption: "DETALLE DE LADRILLO RECUPERADO" },
       { seed: "jardin-05", ratio: "portrait" },
     ],
     beforeAfter: {
       before: { seed: "jardin-before", ratio: "landscape" },
       after: { seed: "jardin-after", ratio: "landscape" },
-      caption: "GARDEN FAÇADE, 1970S ORIGINAL VS. 2024 RENOVATION",
+      caption: "FACHADA AL JARDÍN, ORIGINAL DE LOS 70 VS. RENOVACIÓN 2024",
     },
   },
 ];
@@ -176,40 +176,40 @@ export function getAdjacentProjects(slug: string): {
 export const services = [
   {
     index: "01",
-    name: "ARCHITECTURE",
+    name: "ARQUITECTURA",
     description:
-      "FULL ARCHITECTURAL DESIGN, FROM EARLY CONCEPT AND MASTERPLANNING THROUGH TO CONSTRUCTION DOCUMENTATION AND SITE SUPERVISION.",
+      "DISEÑO ARQUITECTÓNICO COMPLETO, DESDE EL CONCEPTO INICIAL Y LA PLANEACIÓN MAESTRA HASTA LA DOCUMENTACIÓN DE OBRA Y LA SUPERVISIÓN EN SITIO.",
   },
   {
     index: "02",
-    name: "INTERIOR DESIGN",
+    name: "DISEÑO DE INTERIORES",
     description:
-      "SPATIAL AND MATERIAL DESIGN FOR RESIDENTIAL AND COMMERCIAL INTERIORS, INCLUDING BESPOKE JOINERY AND FURNITURE SELECTION.",
+      "DISEÑO ESPACIAL Y DE MATERIALES PARA INTERIORES RESIDENCIALES Y COMERCIALES, INCLUYENDO CARPINTERÍA A MEDIDA Y SELECCIÓN DE MOBILIARIO.",
   },
   {
     index: "03",
-    name: "RENOVATION",
+    name: "RENOVACIÓN",
     description:
-      "SENSITIVE INTERVENTION IN EXISTING STRUCTURES — BALANCING PRESERVATION, PERFORMANCE AND CONTEMPORARY DOMESTIC NEEDS.",
+      "INTERVENCIÓN SENSIBLE EN ESTRUCTURAS EXISTENTES — EQUILIBRANDO CONSERVACIÓN, DESEMPEÑO Y NECESIDADES DOMÉSTICAS CONTEMPORÁNEAS.",
   },
   {
     index: "04",
-    name: "SPACE PLANNING",
+    name: "PLANEACIÓN DE ESPACIOS",
     description:
-      "LAYOUT AND PROGRAMME STRATEGY FOR NEW AND EXISTING SPACES, OPTIMISING CIRCULATION, LIGHT AND SPATIAL HIERARCHY.",
+      "ESTRATEGIA DE DISTRIBUCIÓN Y PROGRAMA PARA ESPACIOS NUEVOS Y EXISTENTES, OPTIMIZANDO CIRCULACIÓN, LUZ Y JERARQUÍA ESPACIAL.",
   },
   {
     index: "05",
-    name: "DESIGN CONSULTING",
+    name: "CONSULTORÍA DE DISEÑO",
     description:
-      "ADVISORY SUPPORT FOR ARCHITECTS, DEVELOPERS AND HOMEOWNERS ON MATERIALITY, DETAILING AND DESIGN DIRECTION.",
+      "ASESORÍA PARA ARQUITECTOS, DESARROLLADORES Y PROPIETARIOS SOBRE MATERIALIDAD, DETALLE Y DIRECCIÓN DE DISEÑO.",
   },
 ];
 
 export const studio = {
   name: "JOANA",
-  descriptor: "ARCHITECTURE / INTERIORS",
+  descriptor: "ARQUITECTURA / INTERIORES",
   email: "hello@joana.com",
   instagram: "@joana.architecture",
-  location: "GUADALAJARA, MEXICO",
+  location: "GUADALAJARA, MÉXICO",
 };

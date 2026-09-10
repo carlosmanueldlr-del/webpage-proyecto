@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Services from "@/components/Services";
 
 export const metadata: Metadata = {
-  title: "Services — JOANA",
-  description: "Architecture, interior design, renovation, space planning and design consulting.",
+  title: "Servicios — JOANA",
+  description: "Arquitectura, diseño de interiores, renovación, planeación de espacios y consultoría de diseño.",
 };
 
 export default function ServicesPage() {

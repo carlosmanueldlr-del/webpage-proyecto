@@ -80,7 +80,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       {project.beforeAfter && (
         <section className="editorial-container py-24 sm:py-32">
           <RevealText as="h2" className="mb-10 text-[0.95rem] uppercase tracking-label text-stone sm:mb-14">
-            Before / After
+            Antes / Después
           </RevealText>
           <div className="sm:mx-auto sm:max-w-4xl">
             <RevealImage>
@@ -97,7 +97,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           className="group"
         >
           <p className="text-micro uppercase tracking-label text-stone">
-            Previous Project
+            Proyecto Anterior
           </p>
           <p className="mt-3 text-[1.6rem] font-medium leading-none tracking-tightest transition-transform duration-500 ease-soft group-hover:-translate-x-1 sm:text-[2.2rem]">
             {previous.name}
@@ -109,7 +109,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           className="group text-left sm:text-right"
         >
           <p className="text-micro uppercase tracking-label text-stone">
-            Next Project
+            Siguiente Proyecto
           </p>
           <p className="mt-3 text-[1.6rem] font-medium leading-none tracking-tightest transition-transform duration-500 ease-soft group-hover:translate-x-1 sm:text-[2.2rem]">
             {next.name}

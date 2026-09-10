@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: `${studio.name} — ${studio.descriptor}`,
   description:
-    "JOANA is an architecture and interior design studio focused on creating spaces that balance function, materiality and emotion.",
+    "JOANA es un estudio de arquitectura y diseño de interiores enfocado en crear espacios que equilibran función, materialidad y emoción.",
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="es" className={inter.variable}>
       <body className="font-sans">
         <SiteChrome>{children}</SiteChrome>
       </body>

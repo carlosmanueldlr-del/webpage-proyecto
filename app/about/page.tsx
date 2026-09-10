@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import About from "@/components/About";
 
 export const metadata: Metadata = {
-  title: "About — JOANA",
+  title: "Nosotros — JOANA",
   description:
-    "Joana is an architect based in Guadalajara, Mexico. Her practice explores architecture through materiality, light, proportion and context.",
+    "Joana es arquitecta radicada en Guadalajara, México. Su práctica explora la arquitectura a través de la materialidad, la luz, la proporción y el contexto.",
 };
 
 export default function AboutPage() {

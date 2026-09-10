@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Photo } from "./ArchPhoto";
+import { studio } from "@/lib/projects";
 
 const EASE = [0.65, 0, 0.35, 1] as const;
 
@@ -82,10 +83,10 @@ export default function Intro({ onComplete }: { onComplete: () => void }) {
         transition={{ duration: phase === "exit" ? 0.5 : 0.8, ease: EASE }}
       >
         <h1 className="text-[13vw] leading-none font-medium tracking-tightest text-ink sm:text-[7vw]">
-          JOANA
+          {studio.name}
         </h1>
         <p className="mt-4 text-micro uppercase tracking-wide2 text-stone">
-          Architecture / Interiors
+          {studio.descriptor}
         </p>
       </motion.div>
     </div>

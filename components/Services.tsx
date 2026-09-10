@@ -13,7 +13,7 @@ export default function Services() {
   return (
     <section className="editorial-container pb-28 pt-[calc(var(--header-h)+3rem)] sm:pb-40">
       <RevealText as="h1" className="text-[0.95rem] uppercase tracking-label text-stone">
-        Services
+        Servicios
       </RevealText>
 
       <Stagger className="mt-10 border-t border-line sm:mt-16">

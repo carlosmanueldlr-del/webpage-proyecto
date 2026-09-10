@@ -11,14 +11,14 @@ export default function BeforeAfter({ before, after, caption }: BeforeAfterPair)
   return (
     <div>
       <div className="relative">
-        <Photo seed={after.seed} src={after.src} ratio={after.ratio} alt="After" />
+        <Photo seed={after.seed} src={after.src} ratio={after.ratio} alt="Después" />
         <motion.div
           className="absolute inset-0"
           initial={false}
           animate={{ opacity: state === "before" ? 1 : 0 }}
           transition={{ duration: 0.9, ease: [0.65, 0, 0.35, 1] }}
         >
-          <Photo seed={before.seed} src={before.src} ratio={before.ratio} alt="Before" />
+          <Photo seed={before.seed} src={before.src} ratio={before.ratio} alt="Antes" />
         </motion.div>
 
         <div
@@ -42,7 +42,7 @@ export default function BeforeAfter({ before, after, caption }: BeforeAfterPair)
               state === "before" ? "text-white" : "text-white/50 hover:text-white/80"
             }`}
           >
-            Before
+            Antes
           </button>
           <span className="text-white/30">/</span>
           <button
@@ -53,7 +53,7 @@ export default function BeforeAfter({ before, after, caption }: BeforeAfterPair)
               state === "after" ? "text-white" : "text-white/50 hover:text-white/80"
             }`}
           >
-            After
+            Después
           </button>
         </div>
       </div>

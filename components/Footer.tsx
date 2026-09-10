@@ -14,13 +14,13 @@ export default function Footer() {
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-micro uppercase tracking-label text-stone">
           <Link href="/about" className="hover:text-ink" data-cursor="link">
-            About
+            Nosotros
           </Link>
           <Link href="/services" className="hover:text-ink" data-cursor="link">
-            Services
+            Servicios
           </Link>
           <Link href="/contact" className="hover:text-ink" data-cursor="link">
-            Contact
+            Contacto
           </Link>
           <a
             href="https://instagram.com"
@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
 
       <p className="mt-10 text-micro text-stoneLight">
-        © {new Date().getFullYear()} {studio.name}. All rights reserved.
+        © {new Date().getFullYear()} {studio.name}. Todos los derechos reservados.
       </p>
     </footer>
   );

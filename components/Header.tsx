@@ -43,7 +43,7 @@ export default function Header() {
         className="text-[0.8rem] uppercase tracking-label"
         data-cursor="link"
       >
-        {isOpen ? "Close" : "Menu"}
+        {isOpen ? "Cerrar" : "Menú"}
       </button>
     </header>
   );

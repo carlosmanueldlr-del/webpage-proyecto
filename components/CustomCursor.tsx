@@ -78,7 +78,7 @@ export default function CustomCursor() {
         }}
       >
         {variant === "view" && (
-          <span className="text-micro uppercase tracking-label">View</span>
+          <span className="text-micro uppercase tracking-label">Ver</span>
         )}
         {variant === "link" && (
           <span className="block h-[5px] w-[5px] rounded-full bg-paper" />

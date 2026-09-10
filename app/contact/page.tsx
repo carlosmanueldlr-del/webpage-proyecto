@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Contact — JOANA",
-  description: "Get in touch with JOANA architecture studio, Guadalajara, Mexico.",
+  title: "Contacto — JOANA",
+  description: "Ponte en contacto con el estudio de arquitectura JOANA, Guadalajara, México.",
 };
 
 export default function ContactPage() {

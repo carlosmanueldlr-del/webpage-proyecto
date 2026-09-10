@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { projects, studio } from "@/lib/projects";
 
 const PRIMARY_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Contact", href: "/contact" },
+  { label: "Nosotros", href: "/about" },
+  { label: "Servicios", href: "/services" },
+  { label: "Contacto", href: "/contact" },
 ];
 
 export default function Sidebar() {
@@ -45,7 +45,7 @@ export default function Sidebar() {
       </nav>
 
       <p className="mt-10 text-micro uppercase tracking-label text-stone">
-        Projects
+        Proyectos
       </p>
       <ul className="mt-4 flex flex-col">
         {projects.map((project) => {

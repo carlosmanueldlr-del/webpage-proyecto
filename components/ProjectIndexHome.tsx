@@ -98,7 +98,7 @@ export default function ProjectIndexHome({ projects }: { projects: Project[] }) 
                 seed={p2.gallery[0]?.seed ?? `${p2.slug}-alt`}
                 src={p2.gallery[0]?.src}
                 ratio="landscape"
-                alt={`${p2.name} detail`}
+                alt={`${p2.name} — detalle`}
               />
             </RevealImage>
           </div>
@@ -160,7 +160,7 @@ export default function ProjectIndexHome({ projects }: { projects: Project[] }) 
                 seed={p5.gallery[1]?.seed ?? `${p5.slug}-alt`}
                 src={p5.gallery[1]?.src}
                 ratio="portrait"
-                alt={`${p5.name} detail`}
+                alt={`${p5.name} — detalle`}
               />
             </RevealImage>
           </div>

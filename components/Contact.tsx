@@ -8,10 +8,10 @@ import { RevealText } from "./Reveal";
 const EASE = [0.65, 0, 0.35, 1] as const;
 
 const FIELDS = [
-  { name: "name", label: "Name", type: "text" },
-  { name: "email", label: "Email", type: "email" },
-  { name: "projectType", label: "Project Type", type: "text" },
-  { name: "location", label: "Location", type: "text" },
+  { name: "name", label: "Nombre", type: "text" },
+  { name: "email", label: "Correo", type: "email" },
+  { name: "projectType", label: "Tipo de Proyecto", type: "text" },
+  { name: "location", label: "Ubicación", type: "text" },
 ] as const;
 
 export default function Contact() {
@@ -26,12 +26,12 @@ export default function Contact() {
   return (
     <section className="editorial-container pb-28 pt-[calc(var(--header-h)+3rem)] sm:pb-40">
       <RevealText as="h1" className="max-w-2xl text-[1.6rem] font-medium uppercase leading-[1.25] tracking-tightest sm:text-[2.6rem]">
-        Let&rsquo;s create something together.
+        Creemos algo juntos.
       </RevealText>
 
       <RevealText delay={0.1} className="mt-16 grid grid-cols-1 gap-8 sm:mt-24 sm:max-w-xl sm:grid-cols-3 sm:gap-6">
         <div>
-          <p className="text-micro uppercase tracking-label text-stone">Email</p>
+          <p className="text-micro uppercase tracking-label text-stone">Correo</p>
           <p className="mt-2 text-[0.95rem]">{studio.email}</p>
         </div>
         <div>
@@ -39,8 +39,8 @@ export default function Contact() {
           <p className="mt-2 text-[0.95rem]">{studio.instagram}</p>
         </div>
         <div>
-          <p className="text-micro uppercase tracking-label text-stone">Location</p>
-          <p className="mt-2 text-[0.95rem]">Guadalajara, Mexico</p>
+          <p className="text-micro uppercase tracking-label text-stone">Ubicación</p>
+          <p className="mt-2 text-[0.95rem]">Guadalajara, México</p>
         </div>
       </RevealText>
 
@@ -52,7 +52,7 @@ export default function Contact() {
             onClick={() => setFormOpen((v) => !v)}
             className="text-[0.9rem] uppercase tracking-label text-ink"
           >
-            Start a project {formOpen ? "↑" : "→"}
+            Iniciar un proyecto {formOpen ? "↑" : "→"}
           </button>
         )}
 
@@ -81,7 +81,7 @@ export default function Contact() {
                 ))}
                 <label className="block">
                   <span className="block text-micro uppercase tracking-label text-stone">
-                    Message
+                    Mensaje
                   </span>
                   <textarea
                     name="message"
@@ -95,7 +95,7 @@ export default function Contact() {
                   data-cursor="link"
                   className="mt-2 self-start text-[0.9rem] uppercase tracking-label text-ink underline underline-offset-4"
                 >
-                  Send →
+                  Enviar →
                 </button>
               </form>
             </motion.div>
@@ -104,7 +104,7 @@ export default function Contact() {
 
         {submitted && (
           <RevealText className="text-[0.95rem] uppercase tracking-label text-stone">
-            Thank you — we&rsquo;ll be in touch shortly.
+            Gracias — nos pondremos en contacto pronto.
           </RevealText>
         )}
       </div>

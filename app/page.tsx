@@ -16,7 +16,7 @@ export default function HomePage() {
             <Photo
               seed="home-hero"
               src="/images/home-hero.jpg"
-              alt="Featured architectural project by JOANA"
+              alt="Proyecto arquitectónico destacado de JOANA"
               className="h-full w-full"
               priority
             />
@@ -24,7 +24,7 @@ export default function HomePage() {
         </RevealImage>
         <div className="editorial-container flex items-baseline justify-between pt-3">
           <p className="text-micro uppercase tracking-label text-stone">
-            Selected works — 2024 / 2026
+            Trabajos seleccionados — 2024 / 2026
           </p>
           <p className="hidden text-micro uppercase tracking-label text-stone sm:block">
             Guadalajara, MX
@@ -36,14 +36,16 @@ export default function HomePage() {
       <section className="editorial-container grid grid-cols-1 gap-10 py-28 sm:grid-cols-12 sm:py-40">
         <RevealText className="sm:col-span-6 sm:col-start-1">
           <p className="max-w-md text-[1.15rem] font-medium uppercase leading-[1.35] tracking-tightest sm:text-[1.4rem]">
-            Joana is an architecture and interior design studio focused on
-            creating spaces that balance function, materiality and emotion.
+            Joana es un estudio de arquitectura y diseño de interiores
+            enfocado en crear espacios que equilibran función, materialidad
+            y emoción.
           </p>
         </RevealText>
         <RevealText delay={0.12} className="sm:col-span-5 sm:col-start-8 sm:self-end">
           <p className="max-w-sm text-[0.95rem] uppercase leading-[1.5] text-stone">
-            We approach each project as a unique exploration of light,
-            proportion, context and the way people experience space.
+            Abordamos cada proyecto como una exploración única de la luz, la
+            proporción, el contexto y la forma en que las personas
+            experimentan el espacio.
           </p>
         </RevealText>
       </section>
@@ -54,7 +56,7 @@ export default function HomePage() {
           <Photo
             seed="home-secondary"
             src="/images/home-secondary.jpg"
-            alt="Interior detail"
+            alt="Detalle interior"
             className="h-full w-full"
           />
         </RevealImage>
@@ -64,7 +66,7 @@ export default function HomePage() {
       <section id="projects" className="pt-28 sm:pt-40">
         <div className="editorial-container mb-14 flex items-end justify-between sm:mb-20">
           <RevealText as="h2" className="text-[0.95rem] uppercase tracking-label text-stone">
-            Featured Projects
+            Proyectos Destacados
           </RevealText>
           <RevealText delay={0.08} className="hidden text-micro uppercase tracking-label text-stoneLight sm:block">
             001 — 005
@@ -78,7 +80,7 @@ export default function HomePage() {
       {renovation && renovation.beforeAfter && (
         <section className="editorial-container py-28 sm:py-40">
           <RevealText as="h2" className="mb-10 text-[0.95rem] uppercase tracking-label text-stone sm:mb-14">
-            Before / After — {renovation.name}
+            Antes / Después — {renovation.name}
           </RevealText>
           <div className="sm:mx-auto sm:max-w-4xl">
             <RevealImage>
