@@ -32,6 +32,7 @@ export default function Header({ currentId, onNavigate, fg }) {
           background: `${fg}14`,
           backdropFilter: "blur(10px)",
           border: `1px solid ${fg}1f`,
+          boxShadow: "0 8px 24px rgba(0,0,0,0.10)",
         }}
       >
         {sections.map((s) => {

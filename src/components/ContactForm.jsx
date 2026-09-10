@@ -5,7 +5,7 @@ import { staggerItem, EASE } from "../lib/motion";
 
 const initialState = { name: "", email: "", message: "" };
 
-function FormField({ id, label, type, value, onChange, error, fg, textarea }) {
+function FormField({ id, label, type, value, onChange, error, fg, accent, textarea }) {
   const [focused, setFocused] = useState(false);
   const Tag = textarea ? "textarea" : "input";
   return (
@@ -26,14 +26,14 @@ function FormField({ id, label, type, value, onChange, error, fg, textarea }) {
         onChange={onChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className="w-full bg-transparent outline-none pb-2 text-base sm:text-lg placeholder:opacity-40 resize-none"
-        style={{ color: fg, caretColor: fg }}
+        className="w-full bg-transparent outline-none pb-2 text-base sm:text-lg placeholder:opacity-40 resize-none transition-colors duration-300"
+        style={{ color: focused ? accent : fg, caretColor: accent }}
         placeholder={type === "email" ? "you@email.com" : textarea ? "Tell me about it..." : "Your name"}
       />
       <div className="relative h-[1.5px] w-full mt-1" style={{ background: `${fg}30` }}>
         <motion.div
           className="absolute left-0 top-0 h-full"
-          style={{ background: fg }}
+          style={{ background: accent, boxShadow: focused ? `0 0 8px 0 ${accent}99` : "none" }}
           initial={false}
           animate={{ width: focused || value ? "100%" : "0%" }}
           transition={{ duration: 0.4, ease: EASE }}
@@ -48,7 +48,7 @@ function FormField({ id, label, type, value, onChange, error, fg, textarea }) {
   );
 }
 
-export default function ContactForm({ fg }) {
+export default function ContactForm({ fg, accent }) {
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sent
@@ -81,14 +81,14 @@ export default function ContactForm({ fg }) {
       noValidate
       className="w-full max-w-sm flex flex-col gap-5 sm:gap-6"
     >
-      <FormField id="name" label="Name" type="text" value={values.name} onChange={handleChange} error={errors.name} fg={fg} />
-      <FormField id="email" label="Email" type="email" value={values.email} onChange={handleChange} error={errors.email} fg={fg} />
-      <FormField id="message" label="Message" type="text" textarea value={values.message} onChange={handleChange} error={errors.message} fg={fg} />
+      <FormField id="name" label="Name" type="text" value={values.name} onChange={handleChange} error={errors.name} fg={fg} accent={accent} />
+      <FormField id="email" label="Email" type="email" value={values.email} onChange={handleChange} error={errors.email} fg={fg} accent={accent} />
+      <FormField id="message" label="Message" type="text" textarea value={values.message} onChange={handleChange} error={errors.message} fg={fg} accent={accent} />
 
       <button
         type="submit"
         className="group inline-flex items-center gap-2 self-start text-sm sm:text-base font-semibold tracking-wide mt-1"
-        style={{ color: fg }}
+        style={{ color: accent }}
       >
         {status === "sent" ? (
           <>

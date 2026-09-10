@@ -7,6 +7,7 @@ import { projects } from "../../data/projects";
 
 export default function PortfolioContent({ section, projectIndex, setProjectIndex, reducedMotion }) {
   const fg = section.theme.fg;
+  const accent = section.theme.accent;
   const project = projects[projectIndex];
   const variants = reducedMotion
     ? { hidden: { opacity: 0 }, show: { opacity: 1 }, exit: { opacity: 0 } }
@@ -59,6 +60,7 @@ export default function PortfolioContent({ section, projectIndex, setProjectInde
           variants={itemVariants}
           href={project.url}
           className="group inline-flex items-center gap-2 text-sm font-semibold"
+          style={{ color: accent }}
         >
           View project
           <ArrowRight size={15} className="transition-transform group-hover:translate-x-1.5" />

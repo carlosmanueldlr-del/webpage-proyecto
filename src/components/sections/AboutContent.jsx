@@ -4,8 +4,9 @@ import { staggerContainer, staggerItem } from "../../lib/motion";
 import SectionInfo from "../SectionInfo";
 import SectionMainVisual from "../SectionMainVisual";
 
-export default function AboutContent({ section, reducedMotion }) {
+export default function AboutContent({ section, reducedMotion, onNavigate }) {
   const fg = section.theme.fg;
+  const accent = section.theme.accent;
   const variants = reducedMotion
     ? { hidden: { opacity: 0 }, show: { opacity: 1 }, exit: { opacity: 0 } }
     : staggerContainer;
@@ -53,14 +54,16 @@ export default function AboutContent({ section, reducedMotion }) {
         <motion.p variants={itemVariants} className="text-sm sm:text-base leading-relaxed opacity-75 max-w-sm">
           {section.paragraph}
         </motion.p>
-        <motion.a
+        <motion.button
+          type="button"
           variants={itemVariants}
-          href={section.cta.href}
+          onClick={() => onNavigate?.(section.cta.action)}
           className="group inline-flex items-center gap-2 text-sm sm:text-base font-semibold"
+          style={{ color: accent }}
         >
           {section.cta.label}
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-1.5" />
-        </motion.a>
+        </motion.button>
       </div>
 
       {/* Right info column */}

@@ -10,12 +10,19 @@ import Header from "./components/Header";
 import NavigationControls from "./components/NavigationControls";
 import Particles from "./components/Particles";
 import LoadingScreen from "./components/LoadingScreen";
+import GrainOverlay from "./components/GrainOverlay";
 
 export default function App() {
   const [currentId, setCurrentId] = useState("about");
   const [projectIndex, setProjectIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
-  const [introDone, setIntroDone] = useState(false);
+  const [introDone, setIntroDone] = useState(() => {
+    try {
+      return sessionStorage.getItem("charlylab-intro-seen") === "1";
+    } catch {
+      return false;
+    }
+  });
   const transitionTimeout = useRef(null);
   const reducedMotion = usePrefersReducedMotion();
 
@@ -67,6 +74,7 @@ export default function App() {
         projectIndex={projectIndex}
         setProjectIndex={setProjectIndex}
         reducedMotion={reducedMotion}
+        onNavigate={goTo}
       />
 
       <Header currentId={currentId} onNavigate={goTo} fg={currentSection.theme.fg} />
@@ -80,9 +88,22 @@ export default function App() {
         disabled={transitioning}
       />
 
+      <GrainOverlay />
+
       <AnimatePresence>
         {!introDone && (
-          <LoadingScreen key="intro" onComplete={() => setIntroDone(true)} reducedMotion={reducedMotion} />
+          <LoadingScreen
+            key="intro"
+            onComplete={() => {
+              setIntroDone(true);
+              try {
+                sessionStorage.setItem("charlylab-intro-seen", "1");
+              } catch {
+                /* private browsing or storage disabled — just skip persisting */
+              }
+            }}
+            reducedMotion={reducedMotion}
+          />
         )}
       </AnimatePresence>
     </main>

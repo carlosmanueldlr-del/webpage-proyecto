@@ -6,12 +6,12 @@ import ContactContent from "./sections/ContactContent";
 // Text/content layer — swaps the whole "scene" (label, headline, paragraph,
 // CTA, secondary info) when the active section changes. Sits above
 // VisualStage's background/visual layers.
-export default function SectionScene({ section, projectIndex, setProjectIndex, reducedMotion }) {
+export default function SectionScene({ section, projectIndex, setProjectIndex, reducedMotion, onNavigate }) {
   return (
     <div className="absolute inset-0 z-20 pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto [&_input]:pointer-events-auto [&_textarea]:pointer-events-auto">
       <AnimatePresence mode="sync" initial={false}>
         {section.id === "about" && (
-          <AboutContent key="about" section={section} reducedMotion={reducedMotion} />
+          <AboutContent key="about" section={section} reducedMotion={reducedMotion} onNavigate={onNavigate} />
         )}
         {section.id === "portfolio" && (
           <PortfolioContent

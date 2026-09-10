@@ -8,6 +8,7 @@ import { socials } from "../../data/socials";
 
 export default function ContactContent({ section, reducedMotion }) {
   const fg = section.theme.fg;
+  const accent = section.theme.accent;
   const email = section.cta.email;
   const variants = reducedMotion
     ? { hidden: { opacity: 0 }, show: { opacity: 1 }, exit: { opacity: 0 } }
@@ -49,7 +50,12 @@ export default function ContactContent({ section, reducedMotion }) {
         <motion.p variants={itemVariants} className="text-sm sm:text-base leading-relaxed opacity-80 max-w-sm">
           {section.paragraph}
         </motion.p>
-        <motion.a variants={itemVariants} href={`mailto:${email}`} className="group inline-flex items-baseline gap-2">
+        <motion.a
+          variants={itemVariants}
+          href={`mailto:${email}`}
+          className="group inline-flex items-baseline gap-2"
+          style={{ color: accent }}
+        >
           <span className="text-lg sm:text-2xl font-extrabold tracking-tight">Let's talk</span>
           <ArrowUpRight size={20} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
         </motion.a>
@@ -67,7 +73,7 @@ export default function ContactContent({ section, reducedMotion }) {
 
       {/* Contact form */}
       <div className="w-full md:w-auto md:absolute md:right-14 lg:right-20 md:top-1/2 md:-translate-y-1/2">
-        <ContactForm fg={fg} />
+        <ContactForm fg={fg} accent={accent} />
       </div>
     </motion.div>
   );
