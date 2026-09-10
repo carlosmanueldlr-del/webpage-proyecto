@@ -9,12 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#f4f2ee", // off-white
-        canvas: "#eeece6",
-        ink: "#151412", // near-black
-        stone: "#8a8478", // warm gray
-        stoneLight: "#c9c4b8",
-        line: "#d9d5c9",
+        // "Warm Terracotta" variant — sand/clay palette instead of neutral gray
+        paper: "#f6ede1", // warm sand
+        canvas: "#f0e0c9",
+        ink: "#2b1c11", // warm umber-black
+        stone: "#a3785a", // clay/terracotta
+        stoneLight: "#d9b98f",
+        line: "#e6d0ae",
       },
       fontFamily: {
         sans: [

@@ -14,15 +14,16 @@ import type { ImageRatio } from "@/lib/projects";
  * required.
  */
 
+// "Warm Terracotta" variant — sand-to-clay gradient instead of neutral gray
 const TONES = [
-  "#e7e3d8",
-  "#ddd7c8",
-  "#cdc5b1",
-  "#b3aa94",
-  "#948a76",
-  "#655d4e",
-  "#3a352c",
-  "#211e19",
+  "#eeddc4",
+  "#e3c9a3",
+  "#d3ab78",
+  "#c08c53",
+  "#a06a3a",
+  "#7a4d2c",
+  "#4f3320",
+  "#2b1c11",
 ];
 
 function hashSeed(seed: string): number {

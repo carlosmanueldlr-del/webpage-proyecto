@@ -25,7 +25,7 @@ export default function BeforeAfter({ before, after, caption }: BeforeAfterPair)
           className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
           style={{
             background:
-              "linear-gradient(to top, rgba(21,20,18,0.55), rgba(21,20,18,0))",
+              "linear-gradient(to top, rgba(43,28,17,0.55), rgba(43,28,17,0))",
           }}
         />
 
