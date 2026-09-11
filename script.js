@@ -167,61 +167,85 @@
   }
 
   /* =======================================================
-     Scroll reveal
+     Reveal — plays a staggered entrance for a view's [data-reveal]
+     children each time that view is switched into. Not IntersectionObserver
+     based: the page doesn't scroll, so entrance is tied to view activation.
      ======================================================= */
-  function setupReveal() {
-    const items = document.querySelectorAll("[data-reveal]");
-    if (!items.length) return;
-
+  function playReveal(view) {
+    if (!view) return;
+    const items = view.querySelectorAll("[data-reveal]");
     items.forEach((el) => {
-      const delay = el.dataset.revealDelay || el.style.getPropertyValue("--reveal-delay") || 0;
+      const delay = el.dataset.revealDelay || 0;
       el.style.setProperty("--reveal-delay", delay);
     });
-
-    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    if (prefersReducedMotion) {
       items.forEach((el) => el.classList.add("is-visible"));
       return;
     }
+    items.forEach((el) => el.classList.remove("is-visible"));
+    void view.offsetWidth; // force reflow so the transition restarts
+    requestAnimationFrame(() => items.forEach((el) => el.classList.add("is-visible")));
+  }
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
-    );
-
-    items.forEach((el) => io.observe(el));
+  function resetReveal(view) {
+    if (!view) return;
+    view.querySelectorAll("[data-reveal]").forEach((el) => el.classList.remove("is-visible"));
   }
 
   /* =======================================================
-     Scrollspy — highlight active nav link
+     View switching — About / Portafolio / Contacto are full-screen
+     panels swapped by the dock nav (and any in-page "#id" link),
+     never by scrolling the page.
      ======================================================= */
-  function setupScrollspy() {
-    const links = document.querySelectorAll("[data-nav-link]");
-    const sections = ["about", "portafolio", "contacto"]
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
-    if (!links.length || !sections.length || !("IntersectionObserver" in window)) return;
+  function setupViewSwitching() {
+    const views = [...document.querySelectorAll("[data-view]")];
+    const navLinks = [...document.querySelectorAll("[data-nav-link]")];
+    if (!views.length) return;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          links.forEach((link) => {
-            const match = link.getAttribute("href") === `#${entry.target.id}`;
-            link.classList.toggle("is-active", match);
-          });
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    );
+    function activate(id) {
+      const target = document.getElementById(id);
+      if (!target || !target.hasAttribute("data-view")) return;
 
-    sections.forEach((s) => io.observe(s));
+      if (target.classList.contains("is-active-view")) {
+        target.scrollTop = 0;
+        return;
+      }
+
+      views.forEach((view) => {
+        const isTarget = view === target;
+        if (!isTarget && view.classList.contains("is-active-view")) resetReveal(view);
+        view.classList.toggle("is-active-view", isTarget);
+        view.toggleAttribute("inert", !isTarget);
+        view.setAttribute("aria-hidden", String(!isTarget));
+      });
+
+      target.scrollTop = 0;
+      playReveal(target);
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+      });
+
+      if (location.hash !== `#${id}`) history.replaceState(null, "", `#${id}`);
+    }
+
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      const id = link.getAttribute("href").slice(1);
+      const target = document.getElementById(id);
+      if (!target || !target.hasAttribute("data-view")) return; // e.g. the "skip to content" link
+      e.preventDefault();
+      activate(id);
+    });
+
+    const initial = (location.hash || "").slice(1);
+    const initialTarget = document.getElementById(initial);
+    if (initial && initialTarget && initialTarget.hasAttribute("data-view") && initial !== "about") {
+      activate(initial);
+    } else {
+      playReveal(document.getElementById("about"));
+    }
   }
 
   /* =======================================================
@@ -255,32 +279,6 @@
       targetX = 0;
       targetY = 0;
     });
-  }
-
-  function setupScrollParallax() {
-    if (prefersReducedMotion) return;
-    const blobs = document.querySelectorAll(".blob");
-    if (!blobs.length) return;
-
-    let ticking = false;
-    function update() {
-      const y = window.scrollY;
-      blobs.forEach((blob, i) => {
-        const speed = 0.06 + (i % 3) * 0.03;
-        blob.style.transform = `translate3d(0, ${y * speed}px, 0)`;
-      });
-      ticking = false;
-    }
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!ticking) {
-          requestAnimationFrame(update);
-          ticking = true;
-        }
-      },
-      { passive: true }
-    );
   }
 
   /* =======================================================
@@ -362,10 +360,8 @@
     renderProjects();
     setupFilters();
     setupPreloader();
-    setupReveal();
-    setupScrollspy();
+    setupViewSwitching();
     setupFigureParallax();
-    setupScrollParallax();
     setupMagneticCards();
     setupCursor();
     setupFooterYear();

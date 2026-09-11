@@ -51,7 +51,8 @@
    Reset
    ========================================================= */
 *, *::before, *::after{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; scroll-snap-type: y proximity; }
+html, body{ height: 100%; }
+html{ overflow: hidden; }
 body{
   margin: 0;
   background: var(--bg);
@@ -61,7 +62,7 @@ body{
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
 }
 /* Soft vignette matching the gray-paper tone of the source documents */
@@ -100,7 +101,6 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
 .skip-link:focus{ top: 16px; }
 
 @media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior: auto; scroll-snap-type: none; }
   *, *::before, *::after{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
 
@@ -315,10 +315,43 @@ body.is-loading{ overflow: hidden; }
 /* =========================================================
    Sections
    ========================================================= */
-.section{ position: relative; overflow: clip; scroll-snap-align: start; scroll-snap-stop: normal; }
+/* View shell — About / Portafolio / Contacto are stacked full-screen
+   panels; only one is shown at a time (switched by the dock nav, not
+   by scrolling the page). Each panel scrolls internally if its own
+   content runs taller than the viewport. */
+#main{
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+.section{
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: clip;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(22px) scale(.99);
+  pointer-events: none;
+  transition: opacity .5s var(--ease-soft), transform .5s var(--ease-soft), visibility 0s linear .5s;
+  z-index: 1;
+}
+.section.is-active-view{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: opacity .5s var(--ease-soft), transform .5s var(--ease-soft);
+  z-index: 2;
+}
+@media (prefers-reduced-motion: reduce){
+  .section{ transform: none; }
+}
 
 /* ---------- About ---------- */
-.section-about{ padding: 46px 0 110px; background: var(--bg); scroll-margin-top: 24px; }
+.section-about{ padding: 46px 0 110px; background: var(--bg); }
 
 .about-grid{
   position: relative; z-index: 1;
@@ -478,7 +511,7 @@ body.is-loading{ overflow: hidden; }
 /* =========================================================
    Portfolio
    ========================================================= */
-.section-portfolio{ padding: 90px 0 130px; background: var(--bg); }
+.section-portfolio{ padding: 56px 0 130px; background: var(--bg); }
 
 .section-head{ max-width: 640px; margin-bottom: 24px; }
 .section-note{ margin-top: 16px; font-size: .88rem; color: var(--ink-onbg); opacity: .68; line-height: 1.6; }
@@ -632,8 +665,20 @@ body.is-loading{ overflow: hidden; }
 /* =========================================================
    Contacto
    ========================================================= */
-.section-contact{ padding: 110px 0 0; background: var(--bg); text-align: center; }
-.contact-inner{ position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+.section-contact{
+  display: flex; flex-direction: column;
+  min-height: 100%;
+  padding: 32px 0 0;
+  background: var(--bg);
+  text-align: center;
+}
+.contact-inner{
+  position: relative; z-index: 1;
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center;
+  padding-block: 20px;
+}
 .section-contact .lede{ max-width: 52ch; margin-inline: auto; margin-top: 18px; }
 
 .contact-grid{
@@ -670,7 +715,7 @@ body.is-loading{ overflow: hidden; }
 }
 .social-row a:hover{ background: var(--black); color: var(--lime); transform: translateY(-2px); }
 
-.site-footer{ margin-top: 70px; border-top: 1px solid var(--line-onbg); padding: 26px 0 128px; }
+.site-footer{ margin-top: auto; border-top: 1px solid var(--line-onbg); padding: 26px 0 128px; flex-shrink: 0; }
 .footer-inner{ display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: .82rem; color: var(--ink-onbg); opacity: .7; }
 .back-top{ text-decoration: none; color: var(--ink-onbg); font-weight: 600; opacity: .85; transition: opacity var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease); }
 .back-top:hover{ color: var(--lime-deep); opacity: 1; }
@@ -696,9 +741,9 @@ body.is-loading{ overflow: hidden; }
 }
 
 @media (max-width: 640px){
-  .section-about{ padding: 76px 0 60px; }
-  .section-portfolio{ padding: 64px 0 90px; }
-  .section-contact{ padding: 84px 0 0; }
+  .section-about{ padding: 28px 0 50px; }
+  .section-portfolio{ padding: 28px 0 90px; }
+  .section-contact{ padding: 24px 0 0; }
   .detail-grid{ grid-template-columns: 1fr; }
   .contact-grid{ grid-template-columns: 1fr; }
   .stat-row{ gap: 22px; }

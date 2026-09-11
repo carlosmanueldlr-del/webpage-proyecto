@@ -56,10 +56,10 @@
   </div>
 </header>
 
-<main id="main">
+<main id="main" tabindex="-1">
 
   <!-- ============ ABOUT ME ============ -->
-  <section id="about" class="section section-about" aria-labelledby="about-heading">
+  <section id="about" class="section section-about is-active-view" data-view aria-labelledby="about-heading">
     <div class="blob blob-lime blob-a" aria-hidden="true"></div>
     <div class="blob blob-gray blob-b" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
@@ -178,7 +178,7 @@
   </section>
 
   <!-- ============ PORTAFOLIO ============ -->
-  <section id="portafolio" class="section section-portfolio" aria-labelledby="portfolio-heading">
+  <section id="portafolio" class="section section-portfolio" data-view aria-labelledby="portfolio-heading">
     <div class="container">
       <div class="section-head" data-reveal>
         <p class="eyebrow">Selected work</p>
@@ -208,7 +208,7 @@
   </section>
 
   <!-- ============ CONTACTO ============ -->
-  <section id="contacto" class="section section-contact" aria-labelledby="contact-heading">
+  <section id="contacto" class="section section-contact" data-view aria-labelledby="contact-heading">
     <div class="blob blob-lime blob-c" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
 
@@ -246,7 +246,7 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <span>© <span id="year"></span> Cristian Potenciano — Graphic Designer</span>
-        <a href="#top" class="back-top">Volver arriba <span aria-hidden="true">↑</span></a>
+        <a href="#about" class="back-top">Volver a inicio <span aria-hidden="true">↑</span></a>
       </div>
     </footer>
   </section>
