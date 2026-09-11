@@ -52,9 +52,9 @@
   ];
 
   const CATEGORY_LABEL = {
-    brand: "Brand Development",
-    collab: "Collaborations",
-    random: "Random Projects",
+    brand: "Desarrollo de Marca",
+    collab: "Colaboraciones",
+    random: "Proyectos Random",
   };
 
   /* Deterministic placeholder gradients per category, so thumbnails
@@ -180,16 +180,51 @@
     });
     if (prefersReducedMotion) {
       items.forEach((el) => el.classList.add("is-visible"));
+      animateCounts(view, 0);
       return;
     }
     items.forEach((el) => el.classList.remove("is-visible"));
     void view.offsetWidth; // force reflow so the transition restarts
     requestAnimationFrame(() => items.forEach((el) => el.classList.add("is-visible")));
+    animateCounts(view);
   }
 
   function resetReveal(view) {
     if (!view) return;
     view.querySelectorAll("[data-reveal]").forEach((el) => el.classList.remove("is-visible"));
+    view.querySelectorAll("[data-count-to]").forEach((el) => {
+      el.textContent = "0" + (el.dataset.suffix || "");
+    });
+  }
+
+  /* Stat count-up — animates each [data-count-to] number from 0 to its
+     target once its surrounding [data-reveal] group becomes visible,
+     instead of just fading in as static text. */
+  function animateCounts(view, durationMs = 900) {
+    view.querySelectorAll("[data-count-to]").forEach((el) => {
+      const target = parseFloat(el.dataset.countTo);
+      const suffix = el.dataset.suffix || "";
+      if (Number.isNaN(target)) return;
+
+      if (!durationMs) {
+        el.textContent = target + suffix;
+        return;
+      }
+
+      const group = el.closest("[data-reveal]");
+      const delayMs = Number(group?.dataset.revealDelay || 0) * 90 + 200;
+
+      window.setTimeout(() => {
+        const start = performance.now();
+        function tick(now) {
+          const t = Math.min(1, (now - start) / durationMs);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }, delayMs);
+    });
   }
 
   /* =======================================================
@@ -367,6 +402,39 @@
   }
 
   /* =======================================================
+     Scroll cue — tells the visitor a view scrolls internally.
+     Shown only when the active view's content actually overflows,
+     and dismissed the moment the visitor scrolls it even a little.
+     ======================================================= */
+  function setupScrollCues() {
+    const cues = [...document.querySelectorAll("[data-scroll-cue]")];
+    if (!cues.length) return;
+
+    const pairs = cues
+      .map((cue) => ({ cue, section: cue.closest(".section") }))
+      .filter((p) => p.section);
+
+    function refresh() {
+      pairs.forEach(({ cue, section }) => {
+        const hasOverflow = section.scrollHeight > section.clientHeight + 8;
+        cue.style.display = hasOverflow ? "" : "none";
+      });
+    }
+
+    pairs.forEach(({ cue, section }) => {
+      section.addEventListener(
+        "scroll",
+        () => cue.classList.toggle("is-dismissed", section.scrollTop > 24),
+        { passive: true }
+      );
+    });
+
+    refresh();
+    window.addEventListener("load", refresh);
+    window.addEventListener("resize", refresh);
+  }
+
+  /* =======================================================
      Misc — footer year
      ======================================================= */
   function setupFooterYear() {
@@ -385,6 +453,7 @@
     setupFigureParallax();
     setupMagneticCards();
     setupCursor();
+    setupScrollCues();
     setupFooterYear();
   });
 })();
