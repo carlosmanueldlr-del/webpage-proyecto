@@ -28,34 +28,33 @@
 
 <a href="#main" class="skip-link">Saltar al contenido</a>
 
-<!-- ============ NAV ============ -->
+<!-- ============ NAV — cápsula flotante inferior (estilo toolbar del video) ============ -->
 <header class="site-header" id="top">
-  <nav class="pill-nav" aria-label="Navegación principal">
-    <a href="#about" class="pill-logo" aria-label="Ir a inicio — Cristian Potenciano">
-      CP<span class="pill-logo-dot" aria-hidden="true"></span>
-    </a>
-
-    <ul class="pill-links">
-      <li><a href="#about" class="nav-link is-active" data-nav-link>
+  <div class="dock">
+    <nav class="dock-pill" aria-label="Navegación principal">
+      <a href="#about" class="dock-link is-active" data-nav-link>
         <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.8 4.8 0 1 0 0-9.6 4.8 4.8 0 0 0 0 9.6Zm0 2.4c-4 0-9.6 2-9.6 6v1.9h19.2V20.4c0-4-5.6-6-9.6-6Z" fill="currentColor"/></svg>
         <span>About me</span>
-      </a></li>
-      <li><a href="#portafolio" class="nav-link" data-nav-link>
-        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z" fill="currentColor"/></svg>
+      </a>
+      <span class="dock-sep" aria-hidden="true"></span>
+      <a href="#portafolio" class="dock-link" data-nav-link>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.6" fill="currentColor"/><circle cx="5" cy="8" r="2.6" fill="currentColor"/><circle cx="19" cy="8" r="2.6" fill="currentColor"/><circle cx="8.5" cy="17" r="2.6" fill="currentColor"/><circle cx="15.5" cy="17" r="2.6" fill="currentColor"/></svg>
         <span>Portafolio</span>
-      </a></li>
-      <li><a href="#contacto" class="nav-link" data-nav-link>
+      </a>
+      <span class="dock-sep" aria-hidden="true"></span>
+      <a href="#contacto" class="dock-link" data-nav-link>
         <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Zm1.4 1.7L12 12.4l7.6-5.2H4.4ZM20 8.3l-7.4 5.1a1 1 0 0 1-1.2 0L4 8.3V17h16V8.3Z" fill="currentColor"/></svg>
         <span>Contacto</span>
-      </a></li>
-    </ul>
+      </a>
+    </nav>
 
-    <a href="#contacto" class="pill-cta" aria-label="Ir a la sección de contacto">
-      <span class="pill-cta-text">Hablemos</span>
-      <svg class="pill-cta-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a href="#contacto" class="dock-cta" aria-label="Ir a la sección de contacto — Hablemos">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-  </nav>
+  </div>
 </header>
+
+<a href="#about" class="brand-mark" aria-label="Ir a inicio — Cristian Potenciano">CP<span aria-hidden="true">.</span></a>
 
 <main id="main">
 
@@ -97,25 +96,19 @@
       </div>
 
       <div class="about-figure" data-reveal data-reveal-delay="2">
-        <div class="figure-panel" id="figurePanel">
-          <div class="figure-shine" aria-hidden="true"></div>
-
+        <div class="figure-stage" id="figurePanel">
+          <div class="figure-ground" aria-hidden="true"></div>
           <picture>
-            <source srcset="assets/img/cristian-3d.webp" type="image/webp">
+            <source srcset="assets/img/cristian-3d-cutout.webp" type="image/webp">
             <img
               class="figure-img"
               id="figureImg"
-              src="assets/img/cristian-3d.jpg"
+              src="assets/img/cristian-3d-cutout.png"
               alt="Ilustración 3D estilo figura coleccionable de Cristian Potenciano: traje gris, camiseta negra, cadenas plateadas, cabello rizado con mechón amarillo y lentes de sol oscuros."
-              width="704" height="880"
+              width="610" height="1744"
               loading="eager" fetchpriority="high">
           </picture>
-
-          <span class="chip chip-role">Graphic&nbsp;Designer</span>
-          <span class="chip chip-year">Desde 2010</span>
-          <span class="chip chip-tag chip-tag-1">Branding</span>
-          <span class="chip chip-tag chip-tag-2">Motion</span>
-          <span class="chip chip-tag chip-tag-3">Editorial</span>
+          <span class="figure-label">Graphic Designer <em>· Desde 2010</em></span>
         </div>
       </div>
     </div>
@@ -191,7 +184,7 @@
         <p class="eyebrow">Selected work</p>
         <h2 id="portfolio-heading" class="display-lg">Portafolio<span class="asterisk">*</span></h2>
         <p class="section-note">
-          Marcas, colaboraciones y proyectos random — pasa el mouse, toca cualquier miniatura.
+          Marcas, colaboraciones y proyectos random — toca cualquier esfera.
           <em>Nota para edición: estas imágenes son placeholders generados en CSS. Reemplázalas y edita los enlaces fácilmente en <code>script.js → PROJECTS</code>.</em>
         </p>
       </div>
@@ -203,10 +196,14 @@
         <button type="button" class="filter-pill" data-filter="random" role="tab" aria-selected="false">Random Projects</button>
       </div>
 
-      <ul class="project-grid" id="projectGrid">
-        <!-- Las tarjetas de proyecto se generan dinámicamente desde script.js (PROJECTS),
+      <ul class="bubble-cluster" id="projectGrid" aria-label="Proyectos — toca cualquier esfera para abrirlo">
+        <!-- Las esferas de proyecto se generan dinámicamente desde script.js (PROJECTS),
              cada una revela su propia animación de entrada al hacer scroll. -->
       </ul>
+      <p class="cluster-hint" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M9 12.5V5.2a1.6 1.6 0 1 1 3.2 0v5.4M12.2 10.4V4a1.6 1.6 0 1 1 3.2 0v6.4m-3.2-.2v-1a1.6 1.6 0 1 1 3.2 0v1.2m0-.1a1.6 1.6 0 0 1 3.2 0v3.6c0 3.6-1.6 6.7-5 6.7h-1.9c-1.9 0-2.9-.6-3.9-1.9L4.2 15a1.5 1.5 0 0 1 2.3-1.9l1.7 1.6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Toca cualquier esfera
+      </p>
     </div>
   </section>
 

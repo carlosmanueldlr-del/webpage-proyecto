@@ -22,7 +22,7 @@
                       con CSS (gradiente + monograma) — reemplázalo
                       cuando tengas el asset final.
        size       -> (opcional) "sm" | "md" | "lg" — controla el
-                      tamaño de la miniatura dentro del mosaico.
+                      diámetro de la esfera dentro del cluster.
      ======================================================= */
   const PROJECTS = [
     // ---- Brand Development ----
@@ -60,9 +60,9 @@
   /* Deterministic placeholder gradients per category, so thumbnails
      stay on-brand (gris / negro / verde lima) until real images land. */
   const CATEGORY_STYLE = {
-    brand: ["#1c1c1e", "#2c2c2f"],
-    collab: ["#000000", "#2a2a2c"],
-    random: ["#b9e600", "#7ea300"],
+    brand: ["#333336", "#141416"],
+    collab: ["#2e2e30", "#000000"],
+    random: ["#ddff6e", "#7ea300"],
   };
 
   function monogram(title) {
@@ -76,9 +76,8 @@
   }
 
   function buildProjectCard(project, index) {
-    // NOTE: the <li> (not the inner <a>) must carry the grid sizing
-    // classes — it's the direct child of the CSS grid, so only its
-    // own grid-column/grid-row rules are honored by the layout.
+    // NOTE: the <li> (not the inner <a>) must carry the size-* class —
+    // it's the flex item the bubble diameter (--size) is set on.
     const li = document.createElement("li");
     li.className = `project-card${project.size ? ` size-${project.size}` : ""}`;
     li.dataset.category = project.category;
@@ -99,7 +98,7 @@
     );
 
     a.innerHTML = `
-      <span class="project-media" style="background:linear-gradient(155deg, ${c1}, ${c2});">
+      <span class="project-media" style="background:radial-gradient(circle at 34% 30%, ${c1}, ${c2});">
         <span class="project-mark" style="color:${markColor}">${monogram(project.title)}</span>
       </span>
       <span class="project-glow" aria-hidden="true"></span>
