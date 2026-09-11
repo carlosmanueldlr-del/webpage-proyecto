@@ -198,30 +198,51 @@
      never by scrolling the page.
      ======================================================= */
   function setupViewSwitching() {
+    const ORDER = ["about", "portafolio", "contacto"];
     const views = [...document.querySelectorAll("[data-view]")];
     const navLinks = [...document.querySelectorAll("[data-nav-link]")];
     if (!views.length) return;
 
+    let activeId = views.find((v) => v.classList.contains("is-active-view"))?.id || ORDER[0];
+    const SLIDE = 64; // px — how far a view travels sideways as it enters/leaves
+
     function activate(id) {
       const target = document.getElementById(id);
-      if (!target || !target.hasAttribute("data-view")) return;
-
-      if (target.classList.contains("is-active-view")) {
-        target.scrollTop = 0;
+      if (!target || !target.hasAttribute("data-view") || id === activeId) {
+        if (target) target.scrollTop = 0;
         return;
       }
+      const outgoing = document.getElementById(activeId);
 
-      views.forEach((view) => {
-        const isTarget = view === target;
-        if (!isTarget && view.classList.contains("is-active-view")) resetReveal(view);
-        view.classList.toggle("is-active-view", isTarget);
-        view.toggleAttribute("inert", !isTarget);
-        view.setAttribute("aria-hidden", String(!isTarget));
+      // Sideways direction: moving right through the menu order slides the
+      // new view in from the right (and the old one out to the left), and
+      // vice-versa — never up/down.
+      const dir = ORDER.indexOf(id) > ORDER.indexOf(activeId) ? 1 : -1;
+
+      if (outgoing) {
+        resetReveal(outgoing);
+        outgoing.style.setProperty("--leave-x", `${-dir * SLIDE}px`);
+        outgoing.classList.add("is-leaving");
+        outgoing.classList.remove("is-active-view");
+        outgoing.setAttribute("inert", "");
+        outgoing.setAttribute("aria-hidden", "true");
+        window.setTimeout(() => outgoing.classList.remove("is-leaving"), prefersReducedMotion ? 0 : 550);
+      }
+
+      // Commit the entering view's starting offset (still inactive) before
+      // switching it to active, so the transition has a real "from" frame
+      // to animate from instead of jumping straight to rest.
+      target.style.setProperty("--enter-x", `${dir * SLIDE}px`);
+      void target.offsetWidth;
+      requestAnimationFrame(() => {
+        target.classList.add("is-active-view");
+        target.removeAttribute("inert");
+        target.setAttribute("aria-hidden", "false");
+        target.scrollTop = 0;
+        playReveal(target);
       });
 
-      target.scrollTop = 0;
-      playReveal(target);
-
+      activeId = id;
       navLinks.forEach((link) => {
         link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
       });
