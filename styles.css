@@ -475,6 +475,44 @@ body.is-loading{ overflow: hidden; }
 }
 .figure-label em{ font-style: normal; color: var(--lime); font-weight: 600; }
 
+/* ---------- Marcas (client logo wall) ---------- */
+.brands{ position: relative; z-index: 1; margin-top: 40px; }
+.brands-label{
+  display: block;
+  font-family: var(--font-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .78rem;
+  color: var(--ink-onbg);
+  margin-bottom: 26px;
+}
+.brands-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 34px 24px;
+}
+.brands-grid li{
+  display: flex; align-items: center; justify-content: center;
+  height: 42px;
+}
+.brands-grid img{
+  max-width: 100%; max-height: 100%;
+  width: auto; height: auto;
+  filter: brightness(0);
+  opacity: .55;
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.brands-grid li:hover img{ opacity: 1; transform: scale(1.08); }
+
+@media (max-width: 860px){
+  .brands-grid{ grid-template-columns: repeat(3, 1fr); gap: 28px 18px; }
+}
+@media (max-width: 640px){
+  .brands-grid{ grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+  .brands-grid li{ height: 36px; }
+}
+
 /* ---------- Software strip ---------- */
 .software-row{
   position: relative; z-index: 1;
