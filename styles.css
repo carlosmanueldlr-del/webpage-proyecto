@@ -53,7 +53,7 @@
    ========================================================= */
 *, *::before, *::after{ box-sizing: border-box; }
 html, body{ height: 100%; }
-html{ overflow: hidden; }
+html{ overflow: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body{
   margin: 0;
   background: var(--bg);
@@ -138,7 +138,7 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
   color: var(--ink);
 }
 .display-xl .line{ display: block; overflow: hidden; }
-.display-xl .line-inner{ display: block; }
+.display-xl .line-inner{ display: block; overflow-wrap: anywhere; }
 .display-xl .accent{ color: var(--lime); }
 
 /* Headline entrance — a mask reveal (text rises out from under the
@@ -904,6 +904,10 @@ body.is-loading{ overflow: hidden; }
   .figure-stage{ width: min(46%, 230px); }
   .figure-label{ font-size: .68rem; padding: 7px 12px; }
   .detail-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 380px){
+  .display-xl{ font-size: clamp(2.2rem, 1.5rem + 6.4vw, 2.6rem); }
 }
 
 @media (max-width: 640px){
