@@ -156,6 +156,7 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
 }
 
 .display-lg{
+  position: relative;
   font-family: var(--font-display);
   font-weight: 800;
   text-transform: uppercase;
@@ -837,4 +838,81 @@ body.is-loading{ overflow: hidden; }
   .about-grid{ gap: 14px; }
   .figure-label{ font-size: .62rem; padding: 6px 10px; }
   .site-footer{ padding-bottom: 110px; }
+}
+
+/* =========================================================
+   Graphic personality — paint splatters, registration marks,
+   marquee band. Pulled from the CV/BOOK's own visual language
+   (lime spatters, print corner marks) instead of living as a
+   purely systematic/minimal layout.
+   ========================================================= */
+.about-copy{ position: relative; }
+.section-head{ position: relative; }
+
+/* ---- Paint splatters ---- */
+.splat{ position: absolute; width: 40px; height: 46px; pointer-events: none; z-index: 0; }
+.splat i{ position: absolute; display: block; background: var(--lime); }
+.splat i:nth-child(1){ width: 32px; height: 28px; top: 0; left: 4px; border-radius: 60% 40% 55% 45% / 55% 60% 40% 45%; }
+.splat i:nth-child(2){ width: 11px; height: 13px; top: 24px; left: 14px; border-radius: 50% 50% 60% 40% / 60% 45% 55% 40%; opacity: .9; }
+.splat i:nth-child(3){ width: 5px; height: 6px; top: 38px; left: 10px; border-radius: 50%; opacity: .75; }
+
+.splat-hero{ top: -10px; right: 6%; transform: rotate(-14deg) scale(1.05); }
+.splat-figure{ bottom: 8%; left: -20px; transform: rotate(24deg) scale(.78); z-index: 2; }
+.splat-portfolio{ top: -46px; right: -6px; left: auto; transform: rotate(10deg) scale(.85); }
+.splat-contact{ top: -50px; right: -10px; left: auto; transform: rotate(-20deg) scale(1.1); }
+
+@media (max-width: 640px){
+  .splat-hero{ right: 2%; transform: rotate(-14deg) scale(.75); }
+  .splat-contact{ display: none; }
+}
+
+/* ---- Registration marks — small print-production crosshairs ---- */
+.reg-mark{
+  position: absolute;
+  width: 20px; height: 20px;
+  color: var(--ink-onbg);
+  opacity: .45;
+  pointer-events: none;
+  z-index: 0;
+}
+.reg-mark.on-dark{ color: var(--white); opacity: .3; }
+.detail-card{ position: relative; overflow: visible; }
+.detail-card .reg-mark{ top: -8px; right: -8px; width: 16px; height: 16px; }
+.contact-card{ position: relative; }
+.contact-card .reg-mark{ bottom: -8px; left: -8px; width: 16px; height: 16px; }
+.figure-stage .reg-mark{ top: -10px; left: -10px; }
+
+/* ---- Marquee — full-bleed looping strip ---- */
+.marquee{
+  width: 100%;
+  overflow: hidden;
+  background: var(--black);
+  padding: 13px 0;
+  margin-top: 44px;
+}
+.marquee-track{
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 30px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  color: var(--lime);
+  animation: marquee-scroll 22s linear infinite;
+}
+.marquee-track .dot{ font-size: .4rem; opacity: .7; }
+@keyframes marquee-scroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{ animation: none; }
+}
+@media (max-width: 640px){
+  .marquee{ margin-top: 30px; }
+  .marquee-track{ font-size: .85rem; gap: 20px; }
 }
