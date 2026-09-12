@@ -25,6 +25,21 @@
                       diámetro de la esfera dentro del cluster.
      ======================================================= */
   const PROJECTS = [
+    // ---- Collaborations ----
+    // Ejemplo con imagen real (reemplaza `image`/`imageWebp` por tus propios
+    // assets en assets/img/projects/ — si se omiten, se usa el placeholder
+    // de gradiente + monograma como en el resto de las esferas).
+    {
+      title: "Seat Arona",
+      category: "collab",
+      tag: "Campaña automotriz",
+      href: "#",
+      size: "lg",
+      image: "assets/img/projects/seat-arona.jpg",
+      imageWebp: "assets/img/projects/seat-arona.webp",
+    },
+    { title: "Nissan", category: "collab", tag: "Dirección de arte", href: "#" },
+
     // ---- Brand Development ----
     { title: "Reinmex", category: "brand", tag: "Identidad de marca", href: "#", size: "lg" },
     { title: "Agro", category: "brand", tag: "Naming & branding", href: "#" },
@@ -34,8 +49,7 @@
     { title: "Trap Cars", category: "brand", tag: "Branding automotriz", href: "#", size: "sm" },
     { title: "Hidrotec", category: "brand", tag: "Identidad corporativa", href: "#", size: "sm" },
 
-    // ---- Collaborations ----
-    { title: "Nissan", category: "collab", tag: "Dirección de arte", href: "#", size: "lg" },
+    // ---- Collaborations (cont.) ----
     { title: "Mitsubishi Motors", category: "collab", tag: "Campaña", href: "#" },
     { title: "Movimiento Ciudadano", category: "collab", tag: "Comunicación gráfica", href: "#" },
     { title: "Gobierno de Tlaquepaque", category: "collab", tag: "Campaña institucional", href: "#" },
@@ -84,9 +98,6 @@
     li.setAttribute("data-reveal", "");
     li.style.setProperty("--reveal-delay", index % 8);
 
-    const [c1, c2] = CATEGORY_STYLE[project.category];
-    const markColor = project.category === "random" ? "#0c0c0d" : "#ccff3d";
-
     const a = document.createElement("a");
     a.href = project.href || "#";
     a.className = "project-link";
@@ -97,10 +108,33 @@
       `${project.title} — ${CATEGORY_LABEL[project.category]}. Abre el proyecto en una pestaña nueva.`
     );
 
+    // Real cover image when provided; otherwise fall back to the
+    // gradient + monogram placeholder used across the rest of the cluster.
+    let mediaMarkup;
+    if (project.image) {
+      const webpSource = project.imageWebp
+        ? `<source srcset="${project.imageWebp}" type="image/webp">`
+        : "";
+      mediaMarkup = `
+        <span class="project-media project-media-photo">
+          <picture>
+            ${webpSource}
+            <img src="${project.image}" alt="" loading="lazy">
+          </picture>
+        </span>
+      `;
+    } else {
+      const [c1, c2] = CATEGORY_STYLE[project.category];
+      const markColor = project.category === "random" ? "#0c0c0d" : "#ccff3d";
+      mediaMarkup = `
+        <span class="project-media" style="background:radial-gradient(circle at 34% 30%, ${c1}, ${c2});">
+          <span class="project-mark" style="color:${markColor}">${monogram(project.title)}</span>
+        </span>
+      `;
+    }
+
     a.innerHTML = `
-      <span class="project-media" style="background:radial-gradient(circle at 34% 30%, ${c1}, ${c2});">
-        <span class="project-mark" style="color:${markColor}">${monogram(project.title)}</span>
-      </span>
+      ${mediaMarkup}
       <span class="project-glow" aria-hidden="true"></span>
       <span class="project-link-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M7 17 17 7M17 7H9m8 0v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
