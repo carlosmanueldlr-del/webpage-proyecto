@@ -195,9 +195,17 @@
       document.body.classList.remove("is-loading");
       setTimeout(() => pre.remove(), 700);
     };
-    window.addEventListener("load", () => setTimeout(hide, prefersReducedMotion ? 0 : 500));
-    // Safety fallback in case 'load' never fires quickly
-    setTimeout(hide, 2500);
+
+    // Give the illustration room to actually play (bar animation is
+    // timed to match) instead of vanishing the instant assets load.
+    const MIN_VISIBLE_MS = prefersReducedMotion ? 400 : 2400;
+    const start = performance.now();
+    window.addEventListener("load", () => {
+      const elapsed = performance.now() - start;
+      setTimeout(hide, Math.max(0, MIN_VISIBLE_MS - elapsed));
+    });
+    // Safety fallback in case 'load' never fires
+    setTimeout(hide, MIN_VISIBLE_MS + 1800);
   }
 
   /* =======================================================
